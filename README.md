@@ -1,6 +1,6 @@
 # Family Tree Assignment (prjBAPQ)
 Write a program, with a graphical user interface, that allows the user 
-to create genealogy trees and work with them.Each person in this genealogy tree will be 
+to create genealogy trees and work with them. Each person in this genealogy tree will be 
 restricted to having at most two children. The nodes of the tree will store string values, which are interpreted as
 names of people. The program should support the following commands:
 
