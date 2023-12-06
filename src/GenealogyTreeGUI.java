@@ -5,18 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// Class representing a node in the genealogy tree
-class Node {
-    String name;
-    Node left;
-    Node right;
-
-    Node(String name) {
-        this.name = name;
-        this.left = null;
-        this.right = null;
-    }
-}
 
 // Main class for the Genealogy Tree GUI
 public class GenealogyTreeGUI extends JFrame {
@@ -47,13 +35,16 @@ public class GenealogyTreeGUI extends JFrame {
         executeButton.addActionListener(new ExecuteButtonListener()); // Add an action listener to the button
         inputPanel.add(executeButton, BorderLayout.EAST); // Add the button to the input panel
         add(inputPanel, BorderLayout.SOUTH); // Add the input panel to the bottom of the window
-        appendOutput("Available commands:\n" + "root name:\nleft parent child\nright parent child\ndescendants person\nancestors person\n \nSee README for instructions on how to use these commands\n");
+        appendOutput("Available commands:\n" + "root name:\nleft parent child\nright parent child\ndescendants person\nancestors person\nclear (Clears the text area)\n \nSee README for instructions on how to use these commands\n");
 
 
         setVisible(true); // Set the window visible
     }
 
     // Method to add the root node to the tree
+    private void clearOutput() {
+        outputArea.setText(null); // Clears the text in the output area
+    }
     private void addRoot(String name) {
         if (root == null) {
             root = new Node(name);
@@ -149,13 +140,14 @@ public class GenealogyTreeGUI extends JFrame {
     // Method to execute the user-entered command
     private void executeCommand(String command) {
         String[] parts = command.split(" ");
-        if (parts.length < 2) {
+        if (parts.length < 1) {
             appendOutput("Invalid command. Please enter a valid command.\n");
             return;
         }
 
         String action = parts[0].toLowerCase();
         switch (action) {
+            // Existing cases
             case "root":
                 addRoot(parts[1]);
                 break;
@@ -175,11 +167,13 @@ public class GenealogyTreeGUI extends JFrame {
                 ArrayList<String> ancestors = findAncestors(parts[1]);
                 appendOutput("Ancestors of '" + parts[1] + "': " + ancestors.toString() + "\n");
                 break;
+            case "clear": // New command to clear the output area
+                clearOutput();
+                break;
             default:
                 appendOutput("Invalid command. Please enter a valid command.\n");
         }
     }
-
     // ActionListener for the Execute button
     private class ExecuteButtonListener implements ActionListener {
         @Override
