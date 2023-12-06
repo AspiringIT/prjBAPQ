@@ -18,6 +18,9 @@ or if there is such a node, but it already has a right child.
 
 **ancestors person:** Displays a list of all ancestors of the node with the name person. The command is ignored if there is no node in the tree with that name.
 
+---
+
 Added commands for convenience:
+
 
 **clear:** Clears the text area for better readability this does **not** clear the binary tree

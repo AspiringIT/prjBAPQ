@@ -7,6 +7,9 @@ import java.util.HashMap;
 
 
 // Main class for the Genealogy Tree GUI
+//The time complexity of this code is O(1) because it only performs a constant number of operations regardless of the size of the input.
+//The space complexity of this code is also O(1) because it only uses a fixed amount of memory to store the GUI components and the root node of the tree. The size of the input does not affect the amount of memory used.
+
 public class GenealogyTreeGUI extends JFrame {
     private Node root; // Root node of the tree
     private HashMap<String, Node> nodes; // Map to store nodes by their names
