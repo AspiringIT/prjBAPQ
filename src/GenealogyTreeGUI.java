@@ -38,7 +38,7 @@ public class GenealogyTreeGUI extends JFrame {
         executeButton.addActionListener(new ExecuteButtonListener()); // Add an action listener to the button
         inputPanel.add(executeButton, BorderLayout.EAST); // Add the button to the input panel
         add(inputPanel, BorderLayout.SOUTH); // Add the input panel to the bottom of the window
-        appendOutput("Available commands:\n" + "root name:\nleft parent child\nright parent child\ndescendants person\nancestors person\nclear (Clears the text area)\n \nSee README for instructions on how to use these commands\n");
+        appendOutput("Available commands:\n" + "root name\nleft parent child\nright parent child\ndescendants person\nancestors person\nclear (Clears the text area)\n \nSee README for instructions on how to use these commands\n");
 
 
         setVisible(true); // Set the window visible
@@ -181,7 +181,7 @@ public class GenealogyTreeGUI extends JFrame {
     private class ExecuteButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String command = inputField.getText().trim();
+            String command = inputField.getText().trim(); //removes unnecessary spaces at the beginning and at the end
             executeCommand(command);
             inputField.setText("");
         }
